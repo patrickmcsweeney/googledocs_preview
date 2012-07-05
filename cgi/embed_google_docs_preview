@@ -1,0 +1,50 @@
+#!/usr/bin/perl
+
+use strict;
+use EPrints;
+
+my $session = EPrints::Session->new();
+return unless( defined $session );
+
+my $eprint = EPrints::DataObj::EPrint->new( $session, $session->param( "eprintid" ) );
+unless( defined $eprint )
+{
+	$session->terminate;
+	return;
+}
+
+my $frag = $session->make_doc_fragment;
+
+my ($html,$head,$body);
+
+$html = $session->make_element( "html" );
+$frag->appendChild( $html );
+
+$head = $session->make_element( "head" );
+$html->appendChild( $head );
+
+my $script = $session->make_element( "script", type => "text/javascript", src => "http://www.edshare.soton.ac.uk/javascript/auto.js" );
+$head->appendChild( $script );
+
+my $style = $session->make_element( "style", type=>"text/css", media=>"screen" );
+##rc=>"http://www.edshare.soton.ac.uk/style/auto.css" );
+$style->appendChild( $session->make_text( '@import url(http://www.edshare.soton.ac.uk/style/auto.css);' ) );
+$head->appendChild( $style );
+
+$body = $session->make_element( "body" );
+$html->appendChild( $body );
+
+my $cont = $session->make_element( "div", style=>"background-color:white;" );
+$body->appendChild( $cont );
+
+my $preview_frag = $session->get_repository()->call("make_preview_plus", $session, $eprint, "horizontal");
+
+$cont->appendChild( $preview_frag );
+
+$session->send_http_header( content_type => "text/html" );
+
+print EPrints::XML::to_string( $frag  );
+
+$session->terminate;
+return;
+

@@ -1,0 +1,93 @@
+.ed_content_container {
+	border-left: 2px solid #cccccc;
+	border-right: 2px solid #cccccc;
+	border-bottom: 2px solid #cccccc;
+}
+
+.ep_user_menu .ep_name_citation {
+	color: #000;
+}
+
+.ep_block {
+	background-color: #ffffff;
+	background-image: url('images/box_bg.png');
+	background-repeat: repeat-x;
+	border-color: #c4caf2;
+	border-style: solid;
+	border-width: 2px;
+	padding: 10px;
+}
+
+/* Styling for the key tools bar at the top of the screen */
+
+ul.ep_toolbar {
+	display: inline;
+	list-style: none;
+}
+
+ul.ep_toolbar li {
+	display: inline;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+ul.ep_toolbar li a {
+	color: #f0f0f0;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+ul.ep_toolbar li a:hover {
+	text-decoration: underline;
+}
+
+/* summary box styling */
+
+.ep_summary_box {
+	border-color: #c4caf2;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.ep_summary_box_title {
+	background-image: url('images/bar_bg.png');
+	border-style: none;
+	border-width: 0;
+	padding: 7px 2px 7px 12px;
+}
+
+.ep_box_collapse_link {
+	color: #ffffff;
+	font-family: verdana, aral, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.ep_summary_box_body {
+	background-color: #ffffff;
+	background-image: url('images/box_bg.png');
+	background-repeat: repeat-x;
+	border-style: none;
+	border-width: 0;
+}
+
+/* previewplus */
+.ep_preview_plus_container {
+	width: 100%;
+}
+
+.ed_user_profile {
+	float: right;
+	background-image: url('images/box_bg.png');
+	border: 1px solid #c4caf2;
+	margin: 5px;
+	padding: 10px;
+	text-align: right;
+}
+
+.ep_form_action_button {
+	background-image: url('images/button_bg.png');
+	border: 1px solid #3c5464;
+	margin: 2px;
+}

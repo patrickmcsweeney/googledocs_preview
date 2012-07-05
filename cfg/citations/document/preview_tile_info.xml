@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+
+<!-- 
+	Document citation style.
+-->
+
+<cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:cite="http://eprints.org/ep3/citation" xmlns:epc="http://eprints.org/ep3/control">
+
+<div style="z-index:100;border-top:1px solid #C4D7ED;">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%">
+		<tr>
+			<td width="87%" style="text-align: left;padding: 5px;" valign="middle">
+				<div style="font-weight:bold;font-size:14px;width:505px;overflow-x:hidden;white-space: nowrap;"><print expr="main"/></div>
+				<span style="font-size:12px;margin-left:5px;margin-right:5px;"><epc:print expr='format'/></span>
+				<epc:if test="is_set(license)">
+					<img title="{license}" alt="{license}" style="vertical-align: text-top;padding-right:5px;" border="0" src="/images/cc/{license.as_string()}-icon.png" />
+				</epc:if>
+
+			</td>
+
+			<td width="13%" style="text-align: right;padding: 5px;" valign="middle">
+
+			<epc:choose>
+			  <epc:when test="is_set(format) and format='application/vnd.edshare-link'">
+				<a title="View this link (opens in new window)" target="_blank" style="font-size:14px;font-weight:bold; margin-right:5px;"  href="{source_url}">View</a><img src="/images/link_new_window.png" border="0" style="vertical-align:middle;padding-bottom:2px;"/>
+			  </epc:when>
+			  <epc:when test="is_set(format) and format='text/html'">
+				<a title="View this link" style="font-size:14px;font-weight:bold; margin-right:5px;"  href="{$item.url()}">View</a>
+			  </epc:when>
+			  <epc:otherwise>
+				<a title="Download this document" style="font-size:14px;font-weight:bold; margin-right:5px;"  href="{$config{base_url}}/id/document/{docid}">Download</a>
+			</epc:otherwise>
+			</epc:choose>
+
+			</td>
+		</tr>
+	</table>
+
+</div>
+
+</cite:citation>

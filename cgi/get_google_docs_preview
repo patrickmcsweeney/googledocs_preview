@@ -1,0 +1,29 @@
+#!/usr/bin/perl
+
+use strict;
+use EPrints;
+
+my $session = EPrints::Session->new();
+return unless( defined $session );
+
+my $document = EPrints::DataObj::Document->new($session, $session->param( 'docid' ));
+
+unless( defined $document )
+{
+        $session->get_request->status( 400 );
+        $session->terminate;
+        return;
+}
+
+my $preview_type = $session->get_repository()->get_conf("simple_preview");
+
+# default value?
+
+my $preview = $session->get_repository()->call("render_preview", $session, $document, $preview_type);
+
+binmode( STDOUT, ":utf8" );
+print STDOUT EPrints::XML::to_string($preview);
+
+$session->terminate;
+return;
+

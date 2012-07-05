@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE phrases SYSTEM "entities.dtd">
+<epp:phrases xmlns="http://www.w3.org/1999/xhtml" xmlns:epp="http://eprints.org/ep3/phrase" xmlns:epc="http://eprints.org/ep3/control">
+
+<!-- Preview ++ -->
+
+<epp:phrase name="previewplusplus:nothing_to_see">
+
+<div id="m1" class="ep_msg_warning"><div class="ep_msg_warning_content"><table><tbody><tr><td><img alt="Warning" src="/style/images/warning.png" class="ep_msg_warning_icon"/></td><td>This resource is empty.</td></tr></tbody></table></div></div>
+</epp:phrase>
+
+</epp:phrases>
