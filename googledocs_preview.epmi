@@ -208,11 +208,32 @@
           <hash_type>MD5</hash_type>
           <filesize>2215</filesize>
         </file>
+        <file>
+          <filename>static/images/epm/googledocs_preview.png</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>c82b306679b5400732459269f3240277</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>164275</filesize>
+        </file>
       </files>
       <mime_type>inode/symlink</mime_type>
       <format>other</format>
-      <main>plugins/EPrints/Plugin/Screen/EPMC/GoogleDocsPreview.pm</main>
+      <main>static/images/epm/googledocs_preview.png</main>
       <content>install</content>
+    </document>
+    <document>
+      <files>
+        <file>
+          <filename>static/images/epm/googledocs_preview.png</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>c82b306679b5400732459269f3240277</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>164275</filesize>
+        </file>
+      </files>
+      <format>image</format>
+      <main>static/images/epm/googledocs_preview.png</main>
+      <content>coverimage</content>
     </document>
   </documents>
   <version>1.0.0</version>
@@ -236,4 +257,5 @@
   <title>Google Docs Preview</title>
   <description>Adds a google docs preview to the EPrint Abstract page. Google docs previews most of the major office formats. This means the user can see a documents content without necessarily downloading it. Note that only publicly visible documents can be viewed since the Google preview requires documents to be accessible by an external service.</description>
   <home_page>http://edshare.org.uk</home_page>
+  <icon>images/epm/googledocs_preview.png</icon>
 </epm>
