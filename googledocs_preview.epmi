@@ -8,9 +8,9 @@
         <file>
           <filename>epm/googledocs_preview/cfg/cfg.d/google_docs_preview.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>5214acc34a5585cbcf2430bf5fc7d560</hash>
+          <hash>5c73e870fb58e477bf9e171cc46fa903</hash>
           <hash_type>MD5</hash_type>
-          <filesize>17484</filesize>
+          <filesize>16952</filesize>
         </file>
         <file>
           <filename>epm/googledocs_preview/cfg/citations/document/preview_frame_no_preview.xml</filename>

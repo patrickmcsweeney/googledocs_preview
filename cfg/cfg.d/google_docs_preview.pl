@@ -82,6 +82,15 @@ $c->{render_preview} = sub
 		return $container;
 
 	}
+
+		if( $document->get_main =~ /\.(jpg|jpeg|png|gif|tiff|bmp|webm|mpeg4|3gpp|mov|avi|mpegps|wmv|flv|txt|css|html|php|c|cpp|h|hpp|js|doc|docx|xls|xlsx|ppt|pptx|pdf|pages|ai|psd|tiff|dxf|svg|eps|ps|ttf|xps|zip|rar)$/i )
+		{
+			my $url = 'http://docs.google.com/viewer?embedded=true&url='.URI::Escape::uri_escape_utf8( $document->url );
+			my $google_doc = $session->make_element( "iframe", width=>"600", height=>"400", style=>"border:none", src=>$url);
+			$google_doc->appendChild( $session->make_text(" ") );
+			return $google_doc;
+		}
+
 		my $eprint = $document->get_eprint;
 	
 		my $doc_frag = $session->make_doc_fragment();
@@ -111,46 +120,6 @@ $c->{render_preview} = sub
 			my $script = "flowplayer('player', '/flowplayer/flowplayer-3.1.5.swf', { clip: { autoPlay: false, autoBuffering: true } }); ";
 			$doc_frag->appendChild($session->make_javascript($script));
 	
-		}
-		elsif( $thumbnail_main =~ /(preview|page-\d+)\.jpg$/ )
-		{
-			my $thumbnails_path = $thumbnail->local_path();
-
-			unless( opendir(DIR, $thumbnails_path) )
-			{
-				$session->get_repository->log( "Failed to open directory '$thumbnails_path'" );
-				return $session->get_repository()->call("render_no_preview", $session, $document );
-			}
-
-			my @pages = grep { /^page.*/ && -f "$thumbnails_path/$_" } readdir(DIR);
-			#sort the pages into order
-			if( scalar( @pages ) == 0 )
-			{
-				my $img = $session->make_element("img", src=>$thumbnail->url(), alt=>"Preview image");
-				$doc_frag->appendChild($img);
-				return $doc_frag;
-			}
-			elsif(scalar @pages > 1)
-			{
-				@pages = sort{
-					$a =~ m/[0-9]+/;
-					my $a_num = $&;
-
-					$b =~ m/[0-9]+/;
-					my $b_num = $&;
-
-					return $a_num <=> $b_num;
-
-				} @pages;
-			}
-		
-			my $thumbnails_base_url = $thumbnail->get_baseurl();	
-			foreach my $page (@pages)
-			{
-				my $img = $session->make_element("img", class=>"ep_inplace_page", src=>$thumbnails_base_url.$page);
-				$doc_frag->appendChild($img);
-			}
-
 		}
 		elsif( $thumbnail_main =~ /preview\.png$/ )
 		{
